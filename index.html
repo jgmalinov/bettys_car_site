@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Toyota Beyond Zero</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Castoro&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="android-chrome-512x512.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="android-chrome-512x512.png" sizes="512x512">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            max-width: 3000px;
+            background-color: #000000;
+            margin: auto;
+        }
+
+        .logo {
+            padding-top: 10px;
+            width: 60px;
+            height: 70px;
+        }
+
+        .navbar {
+            border-radius: 0;
+            background-color: #000000;
+            height: auto;
+            box-sizing: content-box;
+            font-size: 20px;
+        }
+
+        #accordian {
+            box-sizing: content-box;
+            background: #000000;
+
+            width: auto;
+            margin: 0px;
+            padding-top: 80px;
+            color: white;
+            box-shadow:
+                0 0 10px 1px rgba(0, 0, 0, .3)
+        }
+
+        /*heading styles*/
+        #accordian h3 {
+            font-size: 20px;
+            line-height: 35px;
+            padding: 20px;
+            cursor: pointer;
+            background: #521512;
+            background: linear-gradient(#000000, #530404);
+        }
+
+
+        #accordian h3:hover {
+            text-shadow: 0 0 1px rgba(255, 255, 255, 0.7);
+        }
+
+        #accordian h3 span {
+            font-size: 80px;
+        }
+
+
+        #accordian li {
+            list-style-type: none;
+            box-sizing: content-box;
+        }
+
+        /*links*/
+        #accordian ul ul li a {
+            box-sizing: content-box;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            line-height: 60px;
+            display: block;
+            padding: 0 20px;
+            transition: all 0.15s;
+        }
+
+        /*hover effect on links*/
+        #accordian ul ul li a:hover {
+            background: #414242;
+            border-left: 5px solid rgb(77, 3, 3);
+        }
+
+        #accordian ul ul {
+            display: none;
+            box-sizing: content-box;
+            padding-left: 0px;
+        }
+
+        #accordian li.active ul {
+            display: block;
+            box-sizing: content-box;
+        }
+
+        h1 {
+            font-size: 60px;
+            font-family: 'Castoro';
+            color: black;
+            -webkit-text-stroke: 1px white;
+            letter-spacing: 6px;
+        }
+
+        h2 {
+            font-family: 'Castoro';
+            color: whitesmoke;
+        }
+
+        .well p {
+            color: white;
+            font-size: 40px;
+        }
+
+        .sidenav {
+            padding-top: 20px;
+            height: 100%;
+        }
+
+        .col-sm-2 {
+            background-color: #000000;
+            padding: 0px
+        }
+
+        .col-sm-3 {
+            background-color: #000000;
+            padding: 0px;
+        }
+
+        .clickable-image {
+            cursor: pointer
+        }
+
+        .dark-red-button {
+            background-color:#530404;
+            
+        }
+
+        footer {
+            color: white;
+            background-color: #000000;
+        }
+
+        @media (min-width: 300px) and (max-width: 991px) {
+            .sidenav {
+                height: auto;
+                padding-top: 10px;
+
+            }
+
+            .row.content {
+                height: auto;
+            }
+
+            .add {
+                display: none;
+            }
+
+        }
+
+        @media (min-width: 992px) {
+
+            .sidenav {
+                height: auto;
+                padding-top: 10px;
+
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
+
+
+        /* Extra large screens */
+        @media screen and (min-width: 1400px) {
+            .sidenav {
+                height: auto;
+                padding: 0px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar navbar-expand-md navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img class="logo" src="pngwing.com.png" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Catalogue</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid d-lg-none d-grid">
+        <a class="btn dark-red-button link-light btn-block" data-bs-toggle="collapse"
+            href="#collapsibleMenu" role="button" aria-expanded="false" aria-controls="collapsibleMenu"><h3>Menu</h3>
+        </a>
+    </div>
+
+    <div class="collapse d-lg-none" id="collapsibleMenu">
+        <div class="col-12 text-center">
+            <div id="accordian" data-bs-toggle="collapse">
+                <ul style="padding-left: 0;">
+                    <li>
+                        <h3><span class="icon-all"></span>All Vehicles</h3>
+                        <ul>
+                            <li><a href="#">Cars & Minivan</a></li>
+                            <li><a href="#">Trucks</a></li>
+                            <li><a href="#">Crossovers & SUVs</a></li>
+                            <li><a href="#">Electrified</a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <h3><span class="icon-el"></span>Electrified Vehicles</h3>
+                        <ul>
+                            <li><a href="#">Hybrid (HEV)</a></li>
+                            <li><a href="#">Plug-In Hybrid (PHEV)</a></li>
+                            <li><a href="#">Fuel Cell Electric</a></li>
+                            <li><a href="#">All-Electric</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3><span class="icon-sh"></span>Shopping Tools</h3>
+                        <ul>
+                            <li><a href="#">Find your vehicle</a></li>
+                            <li><a href="#">Explore Used Vehicles</a></li>
+                            <li><a href="#">Design your Toyota</a></li>
+                            <li><a href="#">Accessories</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3><span class="icon-parts"></span>Service & Parts</h3>
+                        <ul>
+                            <li><a href="#">Service Specials</a></li>
+                            <li><a href="#">Maintenance Schedule</a></li>
+                            <li><a href="#">Certified Collision Centers</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3><span class="icon-news"></span>Upcoming Vehicles</h3>
+                        <ul>
+                            <li><a href="#">News</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+    <div class="container-fluid text-center">
+        <div class="row content justify-content-center">
+            <div class="d-none d-lg-block col-lg-4 col-xl-3 sidenav">
+                <div id="accordian" data-bs-toggle="collapse">
+                    <ul>
+                        <li>
+                            <h3><span class="icon-all"></span>All Vehicles</h3>
+                            <ul>
+                                <li><a href="#">Cars & Minivan</a></li>
+                                <li><a href="#">Trucks</a></li>
+                                <li><a href="#">Crossovers & SUVs</a></li>
+                                <li><a href="#">Electrified</a></li>
+                            </ul>
+                        </li>
+                        <li class="active">
+                            <h3><span class="icon-el"></span>Electrified Vehicles</h3>
+                            <ul>
+                                <li><a href="#">Hybrid (HEV)</a></li>
+                                <li><a href="#">Plug-In Hybrid (PHEV)</a></li>
+                                <li><a href="#">Fuel Cell Electric</a></li>
+                                <li><a href="#">All-Electric</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3><span class="icon-sh"></span>Shopping Tools</h3>
+                            <ul>
+                                <li><a href="#">Find your vehicle</a></li>
+                                <li><a href="#">Explore Used Vehicles</a></li>
+                                <li><a href="#">Design your Toyota</a></li>
+                                <li><a href="#">Accessories</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3><span class="icon-parts"></span>Service & Parts</h3>
+                            <ul>
+                                <li><a href="#">Service Specials</a></li>
+                                <li><a href="#">Maintenance Schedule</a></li>
+                                <li><a href="#">Certified Collision Centers</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3><span class="icon-news"></span>Upcoming Vehicles</h3>
+                            <ul>
+                                <li><a href="#">News</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-8 col-md-10 col-lg-5 col-xl-6 mt-2">
+                <div class="row justify-content-center">
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-5" style="max-width: 550px;">
+                        <img src="toyota1.jpg" alt="Image 1" class="img-fluid img-thumbnail clickable-image"
+                            data-bs-toggle="modal" data-bs-target="#modal1">
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-5" style="max-width: 550px;">
+                        <img src="toyota2.jpg" alt="Image 1" class="img-fluid img-thumbnail clickable-image"
+                            data-bs-toggle="modal" data-bs-target="#modal2">
+                    </div>
+                </div>
+                <div class='container-fluid text-center'>
+                    <hr>
+                    <h1>Toyota</h1>
+                    <h2>Selected Vehicles</h2>
+                    <hr>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-5" style="max-width: 550px;">
+                        <img src="toyota4.jpg" alt="Image 1" class="img-fluid img-thumbnail clickable-image"
+                            data-bs-toggle="modal" data-bs-target="#modal3">
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-5" style="max-width: 550px;">
+                        <img src="toyota3.jpg" alt="Image 1" class="img-fluid img-thumbnail clickable-image"
+                            data-bs-toggle="modal" data-bs-target="#modal4">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-5" style="max-width: 550px;">
+                        <img src="toyota5.jpg" alt="Image 1" class="img-fluid img-thumbnail clickable-image"
+                            data-bs-toggle="modal" data-bs-target="#modal5">
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-5" style="max-width: 550px;">
+                        <img src="toyota6.jpg" alt="Image 1" class="img-fluid img-thumbnail clickable-image"
+                            data-bs-toggle="modal" data-bs-target="#modal6">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-5" style="max-width: 550px;">
+                        <img src="toyota7.jpg" alt="Image 1" class="img-fluid img-thumbnail clickable-image"
+                            data-bs-toggle="modal" data-bs-target="#modal7">
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-5" style="max-width: 550px;">
+                        <img src="toyota8.jpg" alt="Image 1" class="img-fluid img-thumbnail clickable-image"
+                            data-bs-toggle="modal" data-bs-target="#modal8">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-5" style="max-width: 550px;">
+                        <img src="toyota9.jpg" alt="Image 1" class="img-fluid img-thumbnail clickable-image"
+                            data-bs-toggle="modal" data-bs-target="#modal9">
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-5" style="max-width: 550px;">
+                        <img src="toyota10.jpg" alt="Image 1" class="img-fluid img-thumbnail clickable-image"
+                            data-bs-toggle="modal" data-bs-target="#modal10">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-5 col-lg-3 col-xl-3 sidenav">
+                <div class='add'>
+                    <div class="elfsight-app-0cb7ecdf-9dbc-43de-bf54-ad951f79b4b4" style="max-width: auto;"></div>
+                </div>
+
+                <div class='add-small'>
+                    <img src="ad_small.png" class="img-fluid mx-auto d-lg-none d-xl-none"></img>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 1 -->
+    <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal1Label">Toyota RAV4 Hybrid</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Toyota fully redesigned the RAV4 lineup, including the hybrid version, for 2019.
+                        For the first time, a more rugged version of the RAV4 Hybrid is coming for the 2023 model year.
+                        A few years after the redesigned RAV4 and RAV4 Hybrid arrived for 2019, a Woodland Edition
+                        arrives for 2023.
+                        Even if you don't find one of those special-edition models, all 2023 RAV4s get an updated Toyota
+                        Audio Multimedia.
+                        The RAV4 Hybrid competes with the Honda CR-V Hybrid, Ford Escape Hybrid, Kia Sportage Hybrid,
+                        and Hyundai Tucson Hybrid.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal2Label">Toyota RAV4 Hybrid</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Toyota fully redesigned the RAV4 lineup, including the hybrid version, for 2019.
+                        For the first time, a more rugged version of the RAV4 Hybrid is coming for the 2023 model year.
+                        A few years after the redesigned RAV4 and RAV4 Hybrid arrived for 2019, a Woodland Edition
+                        arrives for 2023.
+                        Even if you don't find one of those special-edition models, all 2023 RAV4s get an updated Toyota
+                        Audio Multimedia.
+                        The RAV4 Hybrid competes with the Honda CR-V Hybrid, Ford Escape Hybrid, Kia Sportage Hybrid,
+                        and Hyundai Tucson Hybrid.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div class="modal fade" id="modal3" tabindex="-1" aria-labelledby="modal3Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal3Label">Toyota Highlander Hybrid</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>The Highlander Hybrid is a tried-and-true option for families looking for a three-row SUV with
+                        great fuel economy.
+                        Toyota introduced the latest, fourth-generation Highlander for the 2020 model year, and this
+                        year marks a mild midcycle
+                        update with a few new tech features. This version of the Highlander competes with other
+                        three-row hybrid SUVs including
+                        the Kia Sorento Hybrid and Ford Explorer Hybrid.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4 -->
+    <div class="modal fade" id="modal4" tabindex="-1" aria-labelledby="modal4Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal4Label">Toyota Highlander Hybrid</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>The Highlander Hybrid is a tried-and-true option for families looking for a three-row SUV with
+                        great fuel economy.
+                        Toyota introduced the latest, fourth-generation Highlander for the 2020 model year, and this
+                        year marks a mild midcycle
+                        update with a few new tech features. This version of the Highlander competes with other
+                        three-row hybrid SUVs including
+                        the Kia Sorento Hybrid and Ford Explorer Hybrid.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 5 -->
+    <div class="modal fade" id="modal5" tabindex="-1" aria-labelledby="modal5Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal5Label">Toyota Corolla Cross</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Toyota introduced the Corolla Cross for model year 2022 to slice the SUV space between the
+                        smaller C-HR and
+                        the larger RAV4. Like the Corolla sedan it shares its name with, the Corolla Cross is intended
+                        to provide affordable,
+                        reliable, straightforward transportation.A new hybrid model is the major change to the Corolla
+                        Cross lineup for 2023.
+                        Otherwise, given the Corolla Cross debuted only last year, changes are minor.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 6 -->
+    <div class="modal fade" id="modal6" tabindex="-1" aria-labelledby="modal6Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal6Label">Toyota Corolla Cross</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Toyota introduced the Corolla Cross for model year 2022 to slice the SUV space between the
+                        smaller C-HR and
+                        the larger RAV4. Like the Corolla sedan it shares its name with, the Corolla Cross is intended
+                        to provide affordable,
+                        reliable, straightforward transportation.A new hybrid model is the major change to the Corolla
+                        Cross lineup for 2023.
+                        Otherwise, given the Corolla Cross debuted only last year, changes are minor.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 7 -->
+    <div class="modal fade" id="modal7" tabindex="-1" aria-labelledby="modal7Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal7Label">Toyota Camry</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>The 2023 Toyota Camry adds head-turning style this year, allowing the best bits of the TRD model
+                        to trickle down the midsize sedan's expansive trim lineup. Still one of the most popular
+                        four-doors
+                        available in the U.S. today, the Camry enters its sixth model year with a couple minor changes
+                        to keep it
+                        relevant against the new-for-2023 Honda Accord, the Hyundai Sonata, and the rest of the segment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 8 -->
+    <div class="modal fade" id="modal8" tabindex="-1" aria-labelledby="modal8Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal8Label">Toyota Camry</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>The 2023 Toyota Camry adds head-turning style this year, allowing the best bits of the TRD model
+                        to trickle down the midsize sedan's expansive trim lineup. Still one of the most popular
+                        four-doors
+                        available in the U.S. today, the Camry enters its sixth model year with a couple minor changes
+                        to keep it
+                        relevant against the new-for-2023 Honda Accord, the Hyundai Sonata, and the rest of the segment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 9 -->
+    <div class="modal fade" id="modal9" tabindex="-1" aria-labelledby="modal9Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal9Label">Toyota Tundra</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>After a too-long production run, the second-generation Toyota Tundra made way for the redesigned
+                        third-generation truck, which arrived for 2022. This full-size pickup is now equipped for the
+                        modern era,
+                        sporting an available hybrid powertrain and high-tech interior. Updates for the 2023 Tundra are
+                        limited to
+                        the addition of a new blacked-out SX appearance package.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 10 -->
+    <div class="modal fade" id="modal10" tabindex="-1" aria-labelledby="modal10Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal10Label">Toyota Tundra</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>After a too-long production run, the second-generation Toyota Tundra made way for the redesigned
+                        third-generation truck, which arrived for 2022. This full-size pickup is now equipped for the
+                        modern era,
+                        sporting an available hybrid powertrain and high-tech interior. Updates for the 2023 Tundra are
+                        limited to
+                        the addition of a new blacked-out SX appearance package.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="container-fluid text-center">
+        <div class="row">
+            <div class="col-sm-3">
+                <br>
+                <p>Site Map</p>
+                <p>Terms of Use</p>
+            </div>
+            <div class="col-sm-3">
+                <br>
+                <p>Notice</p>
+            </div>
+            <div class="col-sm-3">
+                <br>
+                <p>Websites and Social Media</p>
+            </div>
+            <div class="col-sm-3">
+                <br>
+                <p>Toyota Global</p>
+                <p>Book a Test Drive</p>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-copyright"></div>© 2023 Copyright:
+        <a href="#">https://armenskipop.com/</a>
+        </div>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            $("#accordian h3").click(function () {
+                $("#accordian ul ul").slideUp();
+
+                if (!$(this).next().is(":visible")) {
+                    $(this).next().slideDown();
+                }
+            })
+        });
+
+    </script>
+</body>
+
+</html>
